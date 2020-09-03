@@ -1,0 +1,158 @@
+fileFormatVersion: 2
+guid: 5e91694ec27490745afd4c508e94ccbc
+timeCreated: 1509352628
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: BackTarget_L
+    100002: BackTarget_R
+    100004: Bone
+    100006: Bone_L
+    100008: Bone_L_001
+    100010: Bone_L_002
+    100012: Bone_L_003
+    100014: Bone_L_004
+    100016: Bone_L_005
+    100018: Bone_L_006
+    100020: Bone_L_007
+    100022: Bone_R
+    100024: Bone_R_001
+    100026: Bone_R_002
+    100028: Bone_R_003
+    100030: Bone_R_004
+    100032: Bone_R_005
+    100034: Bone_R_006
+    100036: Bone_R_007
+    100038: Cannon1_L
+    100040: Cannon1_R
+    100042: Cannon2_L
+    100044: Cannon2_R
+    100046: CannonBody_L
+    100048: CannonBody_R
+    100050: CannonBodyTarget_L
+    100052: CannonBodyTarget_R
+    100054: CannonsRoot
+    100056: FrontTarget_L
+    100058: FrontTarget_R
+    100060: ik_root
+    100062: MachineGun
+    100064: MachineGunBody
+    100066: MachineGunRoot
+    100068: MachineGunTarget
+    100070: root
+    100072: spider
+    100074: spider_rig
+    100076: //RootNode
+    400000: BackTarget_L
+    400002: BackTarget_R
+    400004: Bone
+    400006: Bone_L
+    400008: Bone_L_001
+    400010: Bone_L_002
+    400012: Bone_L_003
+    400014: Bone_L_004
+    400016: Bone_L_005
+    400018: Bone_L_006
+    400020: Bone_L_007
+    400022: Bone_R
+    400024: Bone_R_001
+    400026: Bone_R_002
+    400028: Bone_R_003
+    400030: Bone_R_004
+    400032: Bone_R_005
+    400034: Bone_R_006
+    400036: Bone_R_007
+    400038: Cannon1_L
+    400040: Cannon1_R
+    400042: Cannon2_L
+    400044: Cannon2_R
+    400046: CannonBody_L
+    400048: CannonBody_R
+    400050: CannonBodyTarget_L
+    400052: CannonBodyTarget_R
+    400054: CannonsRoot
+    400056: FrontTarget_L
+    400058: FrontTarget_R
+    400060: ik_root
+    400062: MachineGun
+    400064: MachineGunBody
+    400066: MachineGunRoot
+    400068: MachineGunTarget
+    400070: root
+    400072: spider
+    400074: spider_rig
+    400076: //RootNode
+    4300000: spider
+    9500000: //RootNode
+    13700000: spider
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: root
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

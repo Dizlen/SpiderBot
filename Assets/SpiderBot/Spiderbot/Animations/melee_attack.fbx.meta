@@ -1,0 +1,443 @@
+fileFormatVersion: 2
+guid: ae3ac253afd91f847a45f5f6f40f803e
+ModelImporter:
+  serializedVersion: 20101
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: BackTarget_L
+  - first:
+      1: 100002
+    second: BackTarget_R
+  - first:
+      1: 100004
+    second: Bone
+  - first:
+      1: 100006
+    second: Bone_L
+  - first:
+      1: 100008
+    second: Bone_L_001
+  - first:
+      1: 100010
+    second: Bone_L_002
+  - first:
+      1: 100012
+    second: Bone_L_003
+  - first:
+      1: 100014
+    second: Bone_L_004
+  - first:
+      1: 100016
+    second: Bone_L_005
+  - first:
+      1: 100018
+    second: Bone_L_006
+  - first:
+      1: 100020
+    second: Bone_L_007
+  - first:
+      1: 100022
+    second: Bone_R
+  - first:
+      1: 100024
+    second: Bone_R_001
+  - first:
+      1: 100026
+    second: Bone_R_002
+  - first:
+      1: 100028
+    second: Bone_R_003
+  - first:
+      1: 100030
+    second: Bone_R_004
+  - first:
+      1: 100032
+    second: Bone_R_005
+  - first:
+      1: 100034
+    second: Bone_R_006
+  - first:
+      1: 100036
+    second: Bone_R_007
+  - first:
+      1: 100038
+    second: Cannon1_L
+  - first:
+      1: 100040
+    second: Cannon1_R
+  - first:
+      1: 100042
+    second: Cannon2_L
+  - first:
+      1: 100044
+    second: Cannon2_R
+  - first:
+      1: 100046
+    second: CannonBody_L
+  - first:
+      1: 100048
+    second: CannonBody_R
+  - first:
+      1: 100050
+    second: CannonBodyTarget_L
+  - first:
+      1: 100052
+    second: CannonBodyTarget_R
+  - first:
+      1: 100054
+    second: CannonsRoot
+  - first:
+      1: 100056
+    second: FrontTarget_L
+  - first:
+      1: 100058
+    second: FrontTarget_R
+  - first:
+      1: 100060
+    second: ik_root
+  - first:
+      1: 100062
+    second: MachineGun
+  - first:
+      1: 100064
+    second: MachineGunBody
+  - first:
+      1: 100066
+    second: MachineGunRoot
+  - first:
+      1: 100068
+    second: MachineGunTarget
+  - first:
+      1: 100070
+    second: //RootNode
+  - first:
+      1: 100072
+    second: root
+  - first:
+      1: 100074
+    second: spider_rig
+  - first:
+      4: 400000
+    second: BackTarget_L
+  - first:
+      4: 400002
+    second: BackTarget_R
+  - first:
+      4: 400004
+    second: Bone
+  - first:
+      4: 400006
+    second: Bone_L
+  - first:
+      4: 400008
+    second: Bone_L_001
+  - first:
+      4: 400010
+    second: Bone_L_002
+  - first:
+      4: 400012
+    second: Bone_L_003
+  - first:
+      4: 400014
+    second: Bone_L_004
+  - first:
+      4: 400016
+    second: Bone_L_005
+  - first:
+      4: 400018
+    second: Bone_L_006
+  - first:
+      4: 400020
+    second: Bone_L_007
+  - first:
+      4: 400022
+    second: Bone_R
+  - first:
+      4: 400024
+    second: Bone_R_001
+  - first:
+      4: 400026
+    second: Bone_R_002
+  - first:
+      4: 400028
+    second: Bone_R_003
+  - first:
+      4: 400030
+    second: Bone_R_004
+  - first:
+      4: 400032
+    second: Bone_R_005
+  - first:
+      4: 400034
+    second: Bone_R_006
+  - first:
+      4: 400036
+    second: Bone_R_007
+  - first:
+      4: 400038
+    second: Cannon1_L
+  - first:
+      4: 400040
+    second: Cannon1_R
+  - first:
+      4: 400042
+    second: Cannon2_L
+  - first:
+      4: 400044
+    second: Cannon2_R
+  - first:
+      4: 400046
+    second: CannonBody_L
+  - first:
+      4: 400048
+    second: CannonBody_R
+  - first:
+      4: 400050
+    second: CannonBodyTarget_L
+  - first:
+      4: 400052
+    second: CannonBodyTarget_R
+  - first:
+      4: 400054
+    second: CannonsRoot
+  - first:
+      4: 400056
+    second: FrontTarget_L
+  - first:
+      4: 400058
+    second: FrontTarget_R
+  - first:
+      4: 400060
+    second: ik_root
+  - first:
+      4: 400062
+    second: MachineGun
+  - first:
+      4: 400064
+    second: MachineGunBody
+  - first:
+      4: 400066
+    second: MachineGunRoot
+  - first:
+      4: 400068
+    second: MachineGunTarget
+  - first:
+      4: 400070
+    second: //RootNode
+  - first:
+      4: 400072
+    second: root
+  - first:
+      4: 400074
+    second: spider_rig
+  - first:
+      74: 7400000
+    second: Default Take
+  - first:
+      74: 7400002
+    second: melee_attack
+  - first:
+      95: 9500000
+    second: //RootNode
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: melee_attack
+      takeName: melee_attack
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 44
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: spider_rig
+        weight: 1
+      - path: spider_rig/root
+        weight: 1
+      - path: spider_rig/root/Bone
+        weight: 1
+      - path: spider_rig/root/Bone/Bone_L
+        weight: 1
+      - path: spider_rig/root/Bone/Bone_L/Bone_L_001
+        weight: 1
+      - path: spider_rig/root/Bone/Bone_L/Bone_L_001/Bone_L_002
+        weight: 1
+      - path: spider_rig/root/Bone/Bone_L/Bone_L_001/Bone_L_002/Bone_L_003
+        weight: 1
+      - path: spider_rig/root/Bone/Bone_L_004
+        weight: 1
+      - path: spider_rig/root/Bone/Bone_L_004/Bone_L_005
+        weight: 1
+      - path: spider_rig/root/Bone/Bone_L_004/Bone_L_005/Bone_L_006
+        weight: 1
+      - path: spider_rig/root/Bone/Bone_L_004/Bone_L_005/Bone_L_006/Bone_L_007
+        weight: 1
+      - path: spider_rig/root/Bone/Bone_R
+        weight: 1
+      - path: spider_rig/root/Bone/Bone_R/Bone_R_001
+        weight: 1
+      - path: spider_rig/root/Bone/Bone_R/Bone_R_001/Bone_R_002
+        weight: 1
+      - path: spider_rig/root/Bone/Bone_R/Bone_R_001/Bone_R_002/Bone_R_003
+        weight: 1
+      - path: spider_rig/root/Bone/Bone_R_004
+        weight: 1
+      - path: spider_rig/root/Bone/Bone_R_004/Bone_R_005
+        weight: 1
+      - path: spider_rig/root/Bone/Bone_R_004/Bone_R_005/Bone_R_006
+        weight: 1
+      - path: spider_rig/root/Bone/Bone_R_004/Bone_R_005/Bone_R_006/Bone_R_007
+        weight: 1
+      - path: spider_rig/root/Bone/CannonsRoot
+        weight: 1
+      - path: spider_rig/root/Bone/CannonsRoot/CannonBody_L
+        weight: 1
+      - path: spider_rig/root/Bone/CannonsRoot/CannonBody_L/Cannon1_L
+        weight: 1
+      - path: spider_rig/root/Bone/CannonsRoot/CannonBody_L/Cannon2_L
+        weight: 1
+      - path: spider_rig/root/Bone/CannonsRoot/CannonBody_R
+        weight: 1
+      - path: spider_rig/root/Bone/CannonsRoot/CannonBody_R/Cannon1_R
+        weight: 1
+      - path: spider_rig/root/Bone/CannonsRoot/CannonBody_R/Cannon2_R
+        weight: 1
+      - path: spider_rig/root/Bone/CannonsRoot/CannonBodyTarget_L
+        weight: 1
+      - path: spider_rig/root/Bone/CannonsRoot/CannonBodyTarget_R
+        weight: 1
+      - path: spider_rig/root/Bone/MachineGunRoot
+        weight: 1
+      - path: spider_rig/root/Bone/MachineGunRoot/MachineGunBody
+        weight: 1
+      - path: spider_rig/root/Bone/MachineGunRoot/MachineGunBody/MachineGun
+        weight: 1
+      - path: spider_rig/root/Bone/MachineGunRoot/MachineGunTarget
+        weight: 1
+      - path: spider_rig/root/ik_root
+        weight: 1
+      - path: spider_rig/root/ik_root/BackTarget_L
+        weight: 1
+      - path: spider_rig/root/ik_root/BackTarget_R
+        weight: 1
+      - path: spider_rig/root/ik_root/FrontTarget_L
+        weight: 1
+      - path: spider_rig/root/ik_root/FrontTarget_R
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: root
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
