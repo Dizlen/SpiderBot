@@ -11909,6 +11909,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 838671938992649187, guid: 17ee1bf6fbea2704aad01aafd8bb01a1, type: 3}
+      propertyPath: movementRadius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 838671938992649187, guid: 17ee1bf6fbea2704aad01aafd8bb01a1, type: 3}
+      propertyPath: viewDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 838671938992649191, guid: 17ee1bf6fbea2704aad01aafd8bb01a1, type: 3}
       propertyPath: m_Name
       value: SpiderBot

@@ -37,6 +37,7 @@ public class SpiderBot : MonoBehaviour
     private bool inRangeToAttack;
     private bool dead;
     private RaycastHit hit;
+    private Vector3 target;
 
     public enum PassiveBotState
     {
@@ -91,6 +92,7 @@ public class SpiderBot : MonoBehaviour
     // Reset and initialize values
     public void Initialize()
     {
+        Debug.Log("Spider bot initialize");
         timeStart = 0;
         searchingPlayer = false;
         isHostile = false;
@@ -103,6 +105,7 @@ public class SpiderBot : MonoBehaviour
     // Agent starts timer and begins to move around the scene
     public void Explore()
     {
+        Debug.Log("Exploring");
         if (timeStart < movementDelay && !isHostile)
         {
             timeStart += Time.deltaTime;
@@ -139,6 +142,8 @@ public class SpiderBot : MonoBehaviour
         if (agent.remainingDistance <= 0.8f)
         {
             inRangeToAttack = true;
+            Vector3 playerpos = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
+            transform.LookAt(playerpos);
 
             if (inRangeToAttack)
             {
@@ -165,6 +170,7 @@ public class SpiderBot : MonoBehaviour
     {
         if (!dead)
         {
+            Debug.Log("Dead");
             dead = true;
             isHostile = false;
             agent.isStopped = true;
@@ -179,10 +185,11 @@ public class SpiderBot : MonoBehaviour
         //Called only once to update the values for alert mode, speed increase and less movement delay
         if (!searchingPlayer)
         {
+            Debug.Log("Looking for the player");
             agent.speed *= 2;
             movementDelay /= 2;
             agent.ResetPath();
-            timeStart = 0;
+            timeStart = movementDelay - 1;
 
             //Once this value turns true, the fixedupdate will begin to search for the player
             searchingPlayer = true;
@@ -208,6 +215,7 @@ public class SpiderBot : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, viewDistance, layermask))
         {
             player = hit.transform.gameObject.GetComponent<User>();
+            Debug.Log("Player spotted! Moving to attack.");
             _state = PassiveBotState.Combat;
         }
 
@@ -245,6 +253,7 @@ public class SpiderBot : MonoBehaviour
 
     public void NoTargetFound()
     {
+        Debug.Log("No Target found...");
         _state = PassiveBotState.Initialize;
     }
 
