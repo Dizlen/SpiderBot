@@ -13,15 +13,19 @@ public class SpiderBot : MonoBehaviour
     public bool isHostile;
     public float huntTimer;
     [Space]
-    [Header("Movement and animator")]
+    [Header("Movement")]
     public int movementRadius;
     public float movementDelay;
+    [Space]
+    [Header("Animator and sfx")]
+    public Animator botAnim;
+    public AudioSource botAudioSource;
+    public AudioClip[] botWalkSFX;
 
     //States and references
     private PassiveBotState _state;
     private NavMeshAgent agent;
     private User player;
-    public Animator botAnim;
 
     //default values are used to reset the bots speed and movement delay if the bot doesn't spot the player
     private float defaultSpeed;
@@ -269,5 +273,11 @@ public class SpiderBot : MonoBehaviour
         }
         agent.destination = finalPosition;
         return finalPosition;
+    }
+
+    public void SpiderBotFootstep()
+    {
+        botAudioSource.clip = botWalkSFX[Random.Range(0, botWalkSFX.Length)];
+        botAudioSource.Play();
     }
 }
