@@ -10,6 +10,7 @@ public class Mouse : MonoBehaviour
     public float smoothing = 2.0f;
     // the chacter is the capsule
     public GameObject character;
+    public AudioSource shot;
     // get the incremental value of mouse moving
     private Vector2 mouseLook;
     // smooth the mouse moving
@@ -18,10 +19,9 @@ public class Mouse : MonoBehaviour
     private int frontBot = 1 << 27;
     private int leftBot = 1 << 28;
     private int rightBot = 1 << 29;
-    private int BackBot = 1 << 30;
+    private int backBot = 1 << 30;
     private int topBot = 1 << 31;
     public SpiderBot bot;
-    private bool botHit;
 
     // Use this for initialization
     void Start()
@@ -42,13 +42,45 @@ public class Mouse : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-
+            shot.Play();
             //front of bot
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 10, frontBot))
             {
                 bot = hit.transform.gameObject.GetComponentInParent<SpiderBot>();
-                bot.TakeDamage(Random.Range(10, 15));
-                Debug.Log("Hit enemy");
+                bot.TakeDamage(Random.Range(10, 15), 0);
+                Debug.Log("Hit front of bot");
+            }
+
+            //back of bot
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 10, backBot))
+            {
+                bot = hit.transform.gameObject.GetComponentInParent<SpiderBot>();
+                bot.TakeDamage(Random.Range(10, 15), 1);
+                Debug.Log("Hit back of bot");
+            }
+
+            //left side of bot
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 10, leftBot))
+            {
+                bot = hit.transform.gameObject.GetComponentInParent<SpiderBot>();
+                bot.TakeDamage(Random.Range(10, 15), 2);
+                Debug.Log("Hit left side of bot");
+            }
+
+            //right side of bot
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 10, rightBot))
+            {
+                bot = hit.transform.gameObject.GetComponentInParent<SpiderBot>();
+                bot.TakeDamage(Random.Range(10, 15), 3);
+                Debug.Log("Hit right side of bot");
+            }
+
+            //right side of bot
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 10, topBot))
+            {
+                bot = hit.transform.gameObject.GetComponentInParent<SpiderBot>();
+                bot.TakeDamage(Random.Range(10, 15), 3);
+                Debug.Log("Hit top of bot");
             }
         }
 

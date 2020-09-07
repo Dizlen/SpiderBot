@@ -40,8 +40,8 @@ public class Shotgun : MonoBehaviour
                 if(Physics.Raycast(transform.position,v3Hit,out hit, range, layermask))
                 {
                     bot = hit.transform.gameObject.GetComponent<SpiderBot>();
-                    bot.TakeDamage(Random.Range(10, 15));
-                    Debug.Log("Hit enemy");    
+                    bot.TakeDamage(Random.Range(10, 15),0);
+                    Debug.Log("Hit enemy");
                 }
 
                 // Position an object to test pattern

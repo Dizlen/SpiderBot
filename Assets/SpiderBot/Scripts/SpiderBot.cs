@@ -21,6 +21,10 @@ public class SpiderBot : MonoBehaviour
     public AudioSource botAudioSource;
     public AudioClip[] botWalkSFX;
     public AudioClip[] botDeathSFX;
+    public AudioClip[] botHitSFX;
+    public AudioClip[] botAlertSFX;
+    public AudioClip[] botIdleSFX;
+    public AudioClip[] botAttackSFX;
 
     //States and references
     private PassiveBotState _state;
@@ -38,7 +42,7 @@ public class SpiderBot : MonoBehaviour
 
     //floats for stun duration when attacked
     private float stunTimerStart;
-    private float stunTimerEnd = 1.2f;
+    private float stunTimerEnd = 0.5f;
 
     //Bools and raycast
     private bool stunned;
@@ -92,17 +96,13 @@ public class SpiderBot : MonoBehaviour
         // Set bot anim speed to velocity
         botAnim.SetFloat("Speed", agent.speed);
 
-        // Searching for player is set to true when the bot has been attacked.
-        // It will attempt to move towards the area where the gun was shot from.
-        if (searchingPlayer)
-        {
-            AgentHunt();
-        }
-
-        // Turns on when the player attacks the spiderbot. 
+        // Turns on when the bot is attacked.
+        // The bot is stunned for a short duration and cannot move.
         if (stunned)
         {
             agent.isStopped = true;
+            botAnim.SetBool("Walking", false);
+            botAnim.SetBool("Attacking", false);
 
             if (stunTimerStart <= stunTimerEnd)
             {
@@ -110,15 +110,22 @@ public class SpiderBot : MonoBehaviour
 
                 if (stunTimerStart >= stunTimerEnd)
                 {
-                    agent.isStopped = false;
-                    stunTimerStart = 0;
-                    stunned = false;
                     botAnim.SetBool("hitLeft", false);
                     botAnim.SetBool("hitRight", false);
                     botAnim.SetBool("hitBack", false);
                     botAnim.SetBool("hitFront", false);
+                    agent.isStopped = false;
+                    stunned = false;
+                    stunTimerStart = 0;
                 }
             }
+        }
+
+        // Searching for player is set to true when the bot has been attacked.
+        // It will attempt to move towards the area where the gun was shot from.
+        if (searchingPlayer)
+        {
+            AgentHunt();
         }
     }
 
@@ -169,28 +176,31 @@ public class SpiderBot : MonoBehaviour
 
     public void Combat()
     {
-        searchingPlayer = false;
-        agent.destination = player.transform.position;
-
-        if (agent.remainingDistance <= 0.8f)
+        if (!stunned)
         {
-            inRangeToAttack = true;
-            Vector3 playerpos = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
-            transform.LookAt(playerpos);
+            searchingPlayer = false;
+            agent.destination = player.transform.position;
 
-            if (inRangeToAttack)
+            if (agent.remainingDistance <= 0.8f)
             {
-                agent.isStopped = true;
-                botAnim.SetBool("Attacking", true);
-                botAnim.SetBool("Walking", false);
+                inRangeToAttack = true;
+                Vector3 playerpos = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
+                transform.LookAt(playerpos);
+
+                if (inRangeToAttack)
+                {
+                    agent.isStopped = true;
+                    botAnim.SetBool("Attacking", true);
+                    botAnim.SetBool("Walking", false);
+                }
             }
-        }
-        else if (!inRangeToAttack)
-        {
-            agent.isStopped = false;
-            botAnim.SetBool("Attacking", false);
-            botAnim.SetBool("Walking", true);
-        }
+            else if (!inRangeToAttack)
+            {
+                agent.isStopped = false;
+                botAnim.SetBool("Attacking", false);
+                botAnim.SetBool("Walking", true);
+            }
+        }    
     }
 
     // Called at the end of the attack animation to break the condition above.
@@ -204,6 +214,7 @@ public class SpiderBot : MonoBehaviour
         if (!dead)
         {
             Debug.Log("Dead");
+            agent.ResetPath();
             agent.isStopped = true;
             dead = true;
             isHostile = false;
@@ -219,6 +230,7 @@ public class SpiderBot : MonoBehaviour
         if (!searchingPlayer)
         {
             Debug.Log("Looking for the player");
+            AlertSFX();
             agent.speed *= 2;
             movementDelay /= 2;
             agent.ResetPath();
@@ -229,14 +241,32 @@ public class SpiderBot : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int dmg)
+    public void TakeDamage(int dmg, int side)
     {
         if(health > 0)
         {
             health -= dmg;
             isHostile = true;
             stunned = true;
-            botAnim.SetBool("hitFront", true);
+            BulletHitSFX();
+
+            // What side of the bot was hit?
+            if(side == 0)
+            {
+                botAnim.SetBool("hitFront", true);
+            }
+            if (side == 1)
+            {
+                botAnim.SetBool("hitBack", true);
+            }
+            if (side == 2)
+            {
+                botAnim.SetBool("hitLeft", true);
+            }
+            if (side == 3)
+            {
+                botAnim.SetBool("hitRight", true);
+            }
         }
 
         if (health <= 0)
@@ -317,5 +347,23 @@ public class SpiderBot : MonoBehaviour
     public void SpiderBotDeath()
     {
         botAudioSource.PlayOneShot(botDeathSFX[Random.Range(0, botDeathSFX.Length)]);
+    }
+
+    public void AlertSFX()
+    {
+        botAudioSource.PlayOneShot(botAlertSFX[Random.Range(0, botAlertSFX.Length)]);
+    }
+
+    public void BulletHitSFX()
+    {
+        botAudioSource.PlayOneShot(botHitSFX[Random.Range(0, botHitSFX.Length)]);
+    }
+    public void AttackSwipeSFX()
+    {
+        botAudioSource.PlayOneShot(botAttackSFX[Random.Range(0, botAttackSFX.Length)]);
+    }
+    public void IdleSFX()
+    {
+        botAudioSource.PlayOneShot(botIdleSFX[Random.Range(0, botIdleSFX.Length)]);
     }
 }
