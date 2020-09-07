@@ -46,15 +46,9 @@ public class Mouse : MonoBehaviour
             //front of bot
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 10, frontBot))
             {
-                if (!botHit)
-                {
-                    //botHit = true;
-                    bot = hit.transform.gameObject.GetComponentInParent<SpiderBot>();
-                    bot.TakeDamage(Random.Range(10, 15));
-                    //bot.botAnim.SetBool("hitFront", true);
-                    Debug.Log("Hit enemy");
-                }
-
+                bot = hit.transform.gameObject.GetComponentInParent<SpiderBot>();
+                bot.TakeDamage(Random.Range(10, 15));
+                Debug.Log("Hit enemy");
             }
         }
 

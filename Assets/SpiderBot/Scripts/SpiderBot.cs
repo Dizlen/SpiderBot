@@ -5,22 +5,22 @@ using UnityEngine;
 
 public class SpiderBot : MonoBehaviour
 {
-    [Space]
-    [Header("Main")]
+    [Header("---Main---")]
     public int health;
     public float speed;
     public float viewDistance;
     public bool isHostile;
     public float huntTimer;
-    [Space]
-    [Header("Movement")]
+
+    [Header("---Movement---")]
     public int movementRadius;
     public float movementDelay;
-    [Space]
-    [Header("Animator and sfx")]
+
+    [Header("---Animator and sfx---")]
     public Animator botAnim;
     public AudioSource botAudioSource;
     public AudioClip[] botWalkSFX;
+    public AudioClip[] botDeathSFX;
 
     //States and references
     private PassiveBotState _state;
@@ -36,7 +36,12 @@ public class SpiderBot : MonoBehaviour
     private float startHuntTimer;
     private float attackStart;
 
+    //floats for stun duration when attacked
+    private float stunTimerStart;
+    private float stunTimerEnd = 1.2f;
+
     //Bools and raycast
+    private bool stunned;
     private bool searchingPlayer;
     private bool inRangeToAttack;
     private bool dead;
@@ -84,13 +89,37 @@ public class SpiderBot : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Set bot anim speed to velocity
+        botAnim.SetFloat("Speed", agent.speed);
+
         // Searching for player is set to true when the bot has been attacked.
         // It will attempt to move towards the area where the gun was shot from.
         if (searchingPlayer)
         {
             AgentHunt();
         }
-        botAnim.SetFloat("Speed", agent.speed);
+
+        // Turns on when the player attacks the spiderbot. 
+        if (stunned)
+        {
+            agent.isStopped = true;
+
+            if (stunTimerStart <= stunTimerEnd)
+            {
+                stunTimerStart += Time.deltaTime;
+
+                if (stunTimerStart >= stunTimerEnd)
+                {
+                    agent.isStopped = false;
+                    stunTimerStart = 0;
+                    stunned = false;
+                    botAnim.SetBool("hitLeft", false);
+                    botAnim.SetBool("hitRight", false);
+                    botAnim.SetBool("hitBack", false);
+                    botAnim.SetBool("hitFront", false);
+                }
+            }
+        }
     }
 
     // Reset and initialize values
@@ -119,7 +148,7 @@ public class SpiderBot : MonoBehaviour
                 timeStart = 0;
             }
         }
-        
+
         // If the bot is moving, enable animation
         if (agent.velocity != Vector3.zero)
         {
@@ -156,7 +185,7 @@ public class SpiderBot : MonoBehaviour
                 botAnim.SetBool("Walking", false);
             }
         }
-        else if(!inRangeToAttack)
+        else if (!inRangeToAttack)
         {
             agent.isStopped = false;
             botAnim.SetBool("Attacking", false);
@@ -175,9 +204,9 @@ public class SpiderBot : MonoBehaviour
         if (!dead)
         {
             Debug.Log("Dead");
+            agent.isStopped = true;
             dead = true;
             isHostile = false;
-            agent.isStopped = true;
             botAnim.SetBool("Attacking", false);
             botAnim.SetBool("Walking", false);
             botAnim.SetBool("Dead", true);
@@ -202,8 +231,13 @@ public class SpiderBot : MonoBehaviour
 
     public void TakeDamage(int dmg)
     {
-        isHostile = true;
-        health -= dmg;
+        if(health > 0)
+        {
+            health -= dmg;
+            isHostile = true;
+            stunned = true;
+            botAnim.SetBool("hitFront", true);
+        }
 
         if (health <= 0)
         {
@@ -277,7 +311,11 @@ public class SpiderBot : MonoBehaviour
 
     public void SpiderBotFootstep()
     {
-        botAudioSource.clip = botWalkSFX[Random.Range(0, botWalkSFX.Length)];
-        botAudioSource.Play();
+        botAudioSource.PlayOneShot(botWalkSFX[Random.Range(0, botWalkSFX.Length)]);
+    }
+
+    public void SpiderBotDeath()
+    {
+        botAudioSource.PlayOneShot(botDeathSFX[Random.Range(0, botDeathSFX.Length)]);
     }
 }
